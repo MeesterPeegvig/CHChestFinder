@@ -29,12 +29,12 @@ public class Events {
             BlockPos pos;
             long timeming = System.currentTimeMillis();
             String[][][] scannedBlocks = new String[radius*2][radius*2][radius*2];
-            for (int x = -radius; x <= radius; x++) {
-                for (int z = -radius; z <= radius; z++) {
-                    for (int y = -radius; y <= radius; y++) {
+            for (int x = -radius; x <= radius-1; x++) {
+                for (int z = -radius; z <= radius-1; z++) {
+                    for (int y = -radius; y <= radius-1; y++) {
                         pos = origPos.east(x).north(z).up(y);
                             Block block = Minecraft.getMinecraft().thePlayer.getEntityWorld().getBlockState(pos).getBlock();
-                            scannedBlocks[x][y][z] = block.toString().substring(16);
+                            scannedBlocks[x+radius][y+radius][z+radius] = block.toString().substring(16);
                             System.out.println(block + " " + x + " " + y + " " + z);
                         if (block.toString().equals("Block{minecraft:diamond_ore}")) {
                             System.out.println("DIA BLOQ FOUND");
@@ -47,8 +47,8 @@ public class Events {
             System.out.println("Timing :: " + (System.currentTimeMillis() - timeming));
 
             for (int x = 0; x<radius*2-2;x++){
-                for (int y = 0; x<radius*2-2;y++){
-                    for (int z = 0; x<radius*2-2;z++){
+                for (int y = 0; y<radius*2-2;y++){
+                    for (int z = 0; z<radius*2-2;z++){
                         for (Structure s : CHChestFinder.structures){
                             if (    scannedBlocks[x][y][z].equals(s.getBlockPattern().getPattern()[0][0]) &&
                                     scannedBlocks[x+1][y][z].equals(s.getBlockPattern().getPattern()[1][0]) &&

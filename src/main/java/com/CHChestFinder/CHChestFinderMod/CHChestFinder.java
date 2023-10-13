@@ -29,7 +29,7 @@ public class CHChestFinder {
 
         // Structure Time!!! D:
 
-        structures = new Structure[126];
+        structures = new Structure[1]; // should be 126
         List<String> lines = IOUtils.readLines(CHChestFinder.class.getResourceAsStream("/StructureInfo.txt"));
         for (int i = 0; i < 1; i++){ // i should go to 126 but we only have 1 line rn.
             String[] info = lines.get(i).split(" ");
