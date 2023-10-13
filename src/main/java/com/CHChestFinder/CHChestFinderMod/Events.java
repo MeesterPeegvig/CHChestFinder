@@ -34,8 +34,8 @@ public class Events {
                     for (int y = -radius; y <= radius-1; y++) {
                         pos = origPos.east(x).north(z).up(y);
                             Block block = Minecraft.getMinecraft().thePlayer.getEntityWorld().getBlockState(pos).getBlock();
-                            scannedBlocks[x+radius][y+radius][z+radius] = block.toString().substring(16);
-                            System.out.println(block + " " + x + " " + y + " " + z);
+                            scannedBlocks[x+radius][y+radius][z+radius] = block.toString().substring(16,block.toString().length()-1);
+                            //System.out.println(block + " " + pos.getX() + " " + pos.getY() + " " + pos.getZ());
                         if (block.toString().equals("Block{minecraft:diamond_ore}")) {
                             System.out.println("DIA BLOQ FOUND");
                             CHChestFinder.waypoints.setWaypoint("diamond", pos, event);
@@ -50,6 +50,20 @@ public class Events {
                 for (int y = 0; y<radius*2-2;y++){
                     for (int z = 0; z<radius*2-2;z++){
                         for (Structure s : CHChestFinder.structures){
+                            System.out.println(scannedBlocks[x][y][z] + " " + s.getBlockPattern().getPattern()[0][0]);
+                            if (scannedBlocks[x][y][z].equals(s.getBlockPattern().getPattern()[0][0])){
+                                System.out.println("AT LEAST ONE MATCHED HAHAHA");
+                                System.out.println(scannedBlocks[x+1][y][z] + " " + s.getBlockPattern().getPattern()[1][0]);
+                                System.out.println(scannedBlocks[x+2][y][z] + " " + s.getBlockPattern().getPattern()[2][0]);
+                                System.out.println(scannedBlocks[x][y][z+1] + " " + s.getBlockPattern().getPattern()[0][1]);
+                                System.out.println(scannedBlocks[x+1][y][z+1] + " " + s.getBlockPattern().getPattern()[1][1]);
+                                System.out.println(scannedBlocks[x+2][y][z+1] + " " + s.getBlockPattern().getPattern()[2][1]);
+                                System.out.println(scannedBlocks[x][y][z+2] + " " + s.getBlockPattern().getPattern()[0][2]);
+                                System.out.println(scannedBlocks[x+1][y][z+2] + " " + s.getBlockPattern().getPattern()[1][2]);
+                                System.out.println(scannedBlocks[x+2][y][z+2] + " " + s.getBlockPattern().getPattern()[2][2]);
+                            }
+
+
                             if (    scannedBlocks[x][y][z].equals(s.getBlockPattern().getPattern()[0][0]) &&
                                     scannedBlocks[x+1][y][z].equals(s.getBlockPattern().getPattern()[1][0]) &&
                                     scannedBlocks[x+2][y][z].equals(s.getBlockPattern().getPattern()[2][0]) &&
