@@ -1,6 +1,8 @@
 package com.CHChestFinder.CHChestFinderMod;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.state.BlockState;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatComponentText;
@@ -33,8 +35,17 @@ public class Events {
                 for (int z = -radius; z <= radius-1; z++) {
                     for (int y = -radius; y <= radius-1; y++) {
                         pos = origPos.east(x).north(z).up(y);
-                            Block block = Minecraft.getMinecraft().thePlayer.getEntityWorld().getBlockState(pos).getBlock();
-                            scannedBlocks[x+radius][y+radius][z+radius] = block.toString().substring(16,block.toString().length()-1);
+                        Block block = Minecraft.getMinecraft().thePlayer.getEntityWorld().getBlockState(pos).getBlock();
+                        IBlockState blockState = Minecraft.getMinecraft().thePlayer.getEntityWorld().getBlockState(pos);
+                        System.out.println("BLOCK: " + block.toString() + "BLOCKSTATE :: " + blockState.toString());
+                        String substring = block.toString().substring(16, block.toString().length() - 1);
+                        if ((substring.equals("stone"))){
+                            String variant = blockState.toString().substring(24, blockState.toString().length() - 1);
+                            scannedBlocks[x + radius][y + radius][z + radius] = variant;
+                        }
+                        else{
+                            scannedBlocks[x + radius][y + radius][z + radius] = substring;
+                        }
                             //System.out.println(block + " " + pos.getX() + " " + pos.getY() + " " + pos.getZ());
                         if (block.toString().equals("Block{minecraft:diamond_ore}")) {
                             System.out.println("DIA BLOQ FOUND");
