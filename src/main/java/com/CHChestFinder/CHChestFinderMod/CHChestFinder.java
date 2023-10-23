@@ -42,12 +42,16 @@ public class CHChestFinder {
                 int x = Integer.parseInt(chestCoords[0]);
                 int y = Integer.parseInt(chestCoords[1]);
                 int z = Integer.parseInt(chestCoords[2]);
+                System.out.println("chest thing: " + x + " " + y + " " + z );
                 Chest chest = new Chest(x, y, z);
                 allChests[a] = chest;
             }
             String ID = info[2];
             String[] blocks = info[3].split(",");
             BlockPattern blockPattern = new BlockPattern(blocks);
+            for (Chest c : allChests){
+                System.out.println("chest offsets: " + c.getX() + " " + c.getY() + " " + c.getZ());
+            }
             structures[i] = new Structure(name, allChests, ID, blockPattern);
         }
     }
