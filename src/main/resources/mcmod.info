@@ -1,0 +1,16 @@
+[
+{
+  "modid": "CHChestFinder",
+  "name": "CHChestFinder",
+  "description": "A mod that finds structure chests in the Crystal Hollows in Hypixel Skyblock.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["ExampleDude"],
+  "credits": "Peegvig and Keehar",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
