@@ -1,11 +1,13 @@
 package com.CHChestFinder;
+//new comment for test
 // make so only works in ch (optional)
+
 // get structure data for at least one quadrant lol
 // SURELY IT WORkS ON SERVER LOL
 
 //issues:
 //keeps checking chunk borders even between 2 previously scanned chunks
-
+//
 import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.Mod;
