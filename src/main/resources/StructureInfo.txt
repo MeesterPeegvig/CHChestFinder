@@ -1,1 +1,5 @@
-TestStructure 5,-7,3|4,2,-4 T01 web,diorite,andesite,gravel,stone,cobblestone,dirt,granite,bedrock
+TestStructure 5,-7,3|4,2,-4 T01 web,diorite,andesite,glass,stone,cobblestone,tnt,granite,bedrock
+CobwebRoom 1,-3,0|22,18,9 A03 stained_hardened_clay,wool,web,air,web,air,end_stone,skull,air
+Lift -9,1,2 A07 fence,air,air,air,air,granite,granite,granite,stone
+StorageRoom 8,0,6 A11 air,air,smooth_andesite,spruce_fence,log2,smooth_andesite,spruce_fence,air,air
+RubyBridgeRoom -2,0,1 A15 spruce_stairs,spruce_stairs,spruce_stairs,air,air,tallgrass,air,leaves,stone

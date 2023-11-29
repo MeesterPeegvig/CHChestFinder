@@ -26,7 +26,7 @@ public class Events {
         	CHChestFinder.waypoints.clearAllVisitedWaypoints();
         	CHChestFinder.waypoints.clearAllWaypoints();
         }
-        if (CHChestFinder.autoWaypoint && ticks%200==0) {
+        if (CHChestFinder.autoWaypoint && ticks%(CHChestFinder.seconds*20)==0) {
             int radius = 1;
             BlockPos origPos = Minecraft.getMinecraft().thePlayer.getPosition();
             int playerChunkX = (origPos.getX() - 192) / 16;//202-10 to be divisible
@@ -39,16 +39,26 @@ public class Events {
                             //no scan
                         }
                         else if (chunkX==playerChunkX+radius){
-                            scanChunkBorder(chunkX, chunkZ, chunkX, chunkZ - 1, event);
+                        	if (chunkZ-1>=0) {
+                        		scanChunkBorder(chunkX, chunkZ, chunkX, chunkZ - 1, event);
+                        	}
                         }
                         else if (chunkZ==playerChunkZ-radius){
-                            scanChunkBorder(chunkX, chunkZ, chunkX + 1, chunkZ, event);
+                        	if(chunkX+1<=39) {
+                        		scanChunkBorder(chunkX, chunkZ, chunkX + 1, chunkZ, event);
+                        	}
                         }
                         else{
                         	//edge of 4 scanned chunks. edge case (literallty hehehehehheah)
-                        	scanChunkBorder(chunkX, chunkZ, chunkX + 1, chunkZ, event);
-                        	scanChunkBorder(chunkX, chunkZ, chunkX, chunkZ - 1, event);
-                        	scanChunkEdge(chunkX+1, chunkZ-1, event);
+                        	if(chunkX+1<=39) {
+                        		scanChunkBorder(chunkX, chunkZ, chunkX + 1, chunkZ, event);
+                        	}
+                        	if (chunkZ-1>=0) {
+                        		scanChunkBorder(chunkX, chunkZ, chunkX, chunkZ - 1, event);
+                        	}
+                        	if(chunkX+1<=39 && chunkZ-1>=0) {
+                        		scanChunkEdge(chunkX+1, chunkZ-1, event);
+                        	}
                         }
                     }
                 }

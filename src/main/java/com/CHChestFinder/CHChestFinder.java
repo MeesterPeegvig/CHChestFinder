@@ -1,6 +1,6 @@
 package com.CHChestFinder;
 //new comment for test 9
-// make so only works in ch (optional)
+// make so only works in ch (optional), resets every time u enter ch lobby
 
 // get structure data for at least one quadrant lol
 // SURELY IT WORkS ON SERVER LOL
@@ -24,16 +24,17 @@ public class CHChestFinder {
     public static final String VERSION = "1.0";
     public static boolean autoWaypoint = false;
     public static Structure[] structures;
+    public static int seconds;
     @EventHandler
     public void init(FMLInitializationEvent event) throws IOException {
         MinecraftForge.EVENT_BUS.register(new Events());
         ClientCommandHandler.instance.registerCommand(new SimpleCommands());
 
         // Structure Time!!! D:
-
-        structures = new Structure[1]; // should be 126
+        int amtStructures = 5; // should be 126
+        structures = new Structure[amtStructures]; // should be 126
         List<String> lines = IOUtils.readLines(CHChestFinder.class.getResourceAsStream("/StructureInfo.txt"));
-        for (int i = 0; i < 1; i++){ // i should go to 126 but we only have 1 line rn
+        for (int i = 0; i < amtStructures; i++){ // i should go to 126 but we only have 1 line rn
             String[] info = lines.get(i).split(" ");
             String name = info[0];
             String chestInfo = info[1];

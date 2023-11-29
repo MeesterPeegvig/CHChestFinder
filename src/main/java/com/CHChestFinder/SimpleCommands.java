@@ -27,6 +27,12 @@ public class SimpleCommands extends CommandBase {
         }
         else if(args[0].equals("auto_waypoint") || args[0].equals("aw")){
             if(args[1].equals("on")){
+            	 if (args[2].matches("[0-9]")) {
+                 	CHChestFinder.seconds=Integer.parseInt(args[2]);
+                 }
+                 else {
+                 	CHChestFinder.seconds = 10;
+                 }
                 CHChestFinder.autoWaypoint=true;
                 Minecraft.getMinecraft().thePlayer.addChatMessage(new ChatComponentText("Auto Waypoint enabled!").setChatStyle(new ChatStyle().setColor(EnumChatFormatting.BLUE)));
             }
