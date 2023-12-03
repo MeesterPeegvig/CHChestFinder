@@ -27,14 +27,14 @@ public class Events {
         	CHChestFinder.waypoints.clearAllWaypoints();
         }
         if (CHChestFinder.autoWaypoint && ticks%(CHChestFinder.seconds*20)==0) {
-            int radius = 1;
+            int radius = 2;
             BlockPos origPos = Minecraft.getMinecraft().thePlayer.getPosition();
             int playerChunkX = (origPos.getX() - 192) / 16;//202-10 to be divisible
             int playerChunkZ = (origPos.getZ() - 192) / 16;
             // border scan
             for (int chunkX = playerChunkX-radius; chunkX<=playerChunkX+radius; chunkX++){
                 for (int chunkZ = playerChunkZ-radius; chunkZ<=playerChunkZ+radius; chunkZ++){
-                    if (chunkX>=0 && chunkX<=39 && chunkZ>=0 && chunkZ<=39){
+                    if (chunkX>=0 && chunkX<=38 && chunkZ>=0 && chunkZ<=38){
                         if (chunkX==playerChunkX+radius && chunkZ==playerChunkZ-radius){
                             //no scan
                         }
@@ -44,19 +44,19 @@ public class Events {
                         	}
                         }
                         else if (chunkZ==playerChunkZ-radius){
-                        	if(chunkX+1<=39) {
+                        	if(chunkX+1<=38) {
                         		scanChunkBorder(chunkX, chunkZ, chunkX + 1, chunkZ, event);
                         	}
                         }
                         else{
                         	//edge of 4 scanned chunks. edge case (literallty hehehehehheah)
-                        	if(chunkX+1<=39) {
+                        	if(chunkX+1<=38) {
                         		scanChunkBorder(chunkX, chunkZ, chunkX + 1, chunkZ, event);
                         	}
                         	if (chunkZ-1>=0) {
                         		scanChunkBorder(chunkX, chunkZ, chunkX, chunkZ - 1, event);
                         	}
-                        	if(chunkX+1<=39 && chunkZ-1>=0) {
+                        	if(chunkX+1<=38 && chunkZ-1>=0) {
                         		scanChunkEdge(chunkX+1, chunkZ-1, event);
                         	}
                         }
