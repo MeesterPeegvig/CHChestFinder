@@ -10,5 +10,8 @@ G07 3,35,22 G07 air,tallgrass,air,air,granite,red_mushroom,jungle_stairs,air,air
 G09 -21,-3,17 G09 gold_block,air,air,gold_block,air,log,light_weighted_pressure_plate,air,red_mushroom
 G19 2,3,13 G19 iron_bars,iron_bars,air,air,air,netherrack,air,air,air
 G20 -13,-3,-3 G20 stained_hardened_clay,stained_hardened_clay,air,stained_hardened_clay,red_mushroom,air,stained_hardened_clay,tallgrass,air
+G22 1,0,5 G22 stained_glass_pane,stained_glass_pane,soul_sand,air,stained_glass_pane,soul_sand,air,air,dirt
 GXX 0,14,34|-30,-4,57 GXX red_mushroom,red_mushroom,air,air,red_mushroom,air,red_mushroom,stone_brick_stairs,air
 G?? -11,-10,-27|-14,-4,6|3,-3,-16 G?? air,planks,wool,log,planks,wool,fence,skull,planks
+G?? 7,10,16 G?? air,gold_block,gold_block,log,light_weighted_pressure_plate,gold_block,air,light_weighted_pressure_plate,air
+

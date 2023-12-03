@@ -31,7 +31,7 @@ public class CHChestFinder {
         ClientCommandHandler.instance.registerCommand(new SimpleCommands());
 
         // Structure Time!!! D:
-        int amtStructures = 14; // should be 126
+        int amtStructures = 16; // should be 126
         structures = new Structure[amtStructures]; // should be 126
         List<String> lines = IOUtils.readLines(CHChestFinder.class.getResourceAsStream("/StructureInfo.txt"));
         for (int i = 0; i < amtStructures; i++){ // i should go to 126 but we only have 1 line rn

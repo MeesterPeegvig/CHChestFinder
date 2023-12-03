@@ -110,7 +110,7 @@ public class Events {
                                 for (Chest c : chests) {
                                     BlockPos pos2 = new BlockPos(playerChunkX*16 + x + c.getX()+192, c.getY()+31+y, playerChunkZ*16 + z + c.getZ()+192);
                                     System.out.println("WAYPOINT/S MADE " + pos2.getX() + " " + pos2.getY() + " " + pos2.getZ());
-                                    CHChestFinder.waypoints.setWaypoint("IN CHUNK Chest", pos2, event);
+                                    CHChestFinder.waypoints.setWaypoint("Chest", pos2, event);
                                 }
                             }
                         }
@@ -189,7 +189,7 @@ public class Events {
                                     for (Chest c : chests) {
                                         BlockPos pos2 = new BlockPos(startPos.getX() + x + c.getX(), y + 31 + c.getY(), startPos.getZ() + z + c.getZ());
                                         System.out.println("BORDER " + dirFromOne + " WAYPOINT/S MADE" + pos2.getX() + " " + pos2.getY() + " " + pos2.getZ());
-                                        CHChestFinder.waypoints.setWaypoint("IN BORDER " + dirFromOne + "Chest", pos2, event);
+                                        CHChestFinder.waypoints.setWaypoint("Chest", pos2, event);
                                     }
                                 }
                             }
@@ -285,7 +285,7 @@ public class Events {
                                 for (Chest c : chests) {
                                     BlockPos pos2 = new BlockPos(chunkX * 16 - 2 + x + c.getX()+192, c.getY()+31+y, chunkZ * 16 + 14 + z + c.getZ()+192);
                                     System.out.println("WAYPOINT/S MADE " + pos2.getX() + " " + pos2.getY() + " " + pos2.getZ());
-                                    CHChestFinder.waypoints.setWaypoint("EDGE Chest", pos2, event);
+                                    CHChestFinder.waypoints.setWaypoint("Chest", pos2, event);
                                 }
                             }
                         }
